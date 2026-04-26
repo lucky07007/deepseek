@@ -384,4 +384,50 @@ export default function InternshipsPage() {
                       <h3 className="font-semibold mb-2 group-hover:text-primary-600 transition-colors">
                         {internship.title}
                       </h3>
-                      <p className="
+                      <p className="text-sm text-gray-500 mb-3">{internship.company}</p>
+                      
+                      <div className="space-y-2 text-sm text-gray-500">
+                        <span className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
+                          {internship.location}
+                        </span>
+                        <span className="flex items-center gap-2">
+                          <DollarSign className="w-4 h-4" />
+                          {internship.stipend}
+                        </span>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-1.5 mt-4">
+                        {internship.skills.slice(0, 2).map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* No Results */}
+        {filteredInternships.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20"
+          >
+            <Briefcase className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">No internships found</h3>
+            <p className="text-gray-500">Try adjusting your search or filters</p>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  )
+}
