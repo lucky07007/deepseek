@@ -1,7 +1,10 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { ChatbotButton } from '@/components/Chatbot'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
@@ -19,8 +22,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'InternAdda - Find Your Dream Internship | Powered by Upforge.org',
-  description: 'Discover top internships at leading companies. Get hired with InternAdda - Your gateway to professional success. Free ATS checker, resume builder, and career guidance.',
-  keywords: 'internships, jobs, career, students, freshers, intern, internship search, internship portal',
+  description: 'Discover top internships at leading companies. Get hired with InternAdda - Your gateway to professional success.',
+  keywords: 'internships, jobs, career, students, freshers, intern',
   authors: [{ name: 'InternAdda', url: 'https://internadda.com' }],
   creator: 'InternAdda',
   publisher: 'Upforge.org',
@@ -32,34 +35,12 @@ export const metadata: Metadata = {
     siteName: 'InternAdda',
     title: 'InternAdda - Find Your Dream Internship',
     description: 'Discover top internships at leading companies. Powered by Upforge.org',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'InternAdda',
-      },
-    ],
+    images: ['/og-image.jpg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'InternAdda - Find Your Dream Internship',
     description: 'Discover top internships at leading companies. Powered by Upforge.org',
-    images: ['/og-image.jpg'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
   },
 }
 
@@ -87,10 +68,6 @@ export default function RootLayout({
             position="top-right"
             toastOptions={{
               duration: 4000,
-              style: {
-                background: 'var(--toast-bg)',
-                color: 'var(--toast-color)',
-              },
             }}
           />
         </ThemeProvider>
