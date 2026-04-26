@@ -20,6 +20,8 @@ import {
   ArrowRight,
   CheckCircle,
   Sparkles,
+  Search,
+  User, 
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
